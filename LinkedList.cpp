@@ -26,5 +26,31 @@ int LinkedList<T>::size() const {
 	return{tempCounter};
 }
 
+template <class T>  // figure out how to access data and return it
+T LinkedList<T>::get(int index) const{
+	typename std::list<T>::iterator it = myList.begin();
+	int tempCounter{0};
+	while (tempCounter <= myList.size()){
+		if (tempCounter == index)
+		{
+			return T;
+		}
+		tempCounter++;
+	}
+}
 
+template <class T>
+T LinkedList<T>::remove(int index){
+
+}
+
+template <class T>
+std::vector<T> LinkedList<T>::toArray() const{
+
+}
+
+template <class T>
+LinkedList<T>& operator+=(const T& item){
+	
+}
 
