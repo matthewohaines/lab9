@@ -30,8 +30,8 @@ int LinkedList<T>::size() const {
 template <class T>
 T LinkedList<T>::get(int index) const {
 	typename std::list<T>::iterator it = myList.begin();
-	if (index > myList.size()){
-		std::cerr << "invalid argument" << endl;
+	if (index > myList.size() || index < 0 || myList.size() == 0){
+		throw std::invalid_argument("invalid argument");
 	}
 
 	for (int i = 0; i < index; i++) {
@@ -42,7 +42,17 @@ T LinkedList<T>::get(int index) const {
 
 template <class T>
 T LinkedList<T>::remove(int index) {
+	typename std::list<T>::iterator it = myList.begin();
+	if (index > myList.size() || index < 0 || myList.size() == 0){
+		throw std::invalid_argument("invalid argume");
+	}
 
+	for (int i = 0; i < index; i++) {
+		it.next();
+	}
+	T element = *it;
+	myList.erase(it);
+	return(element);
 }
 
 template <class T>
