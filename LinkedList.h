@@ -11,7 +11,7 @@ class LinkedList{
 
     vector<T> toArray() const;
 
-    LinkedList<T>& operator+=(const T& item)
+    LinkedList<T>& operator+=(const T& item);
 
 
 
