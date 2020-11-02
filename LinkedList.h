@@ -1,7 +1,8 @@
 #ifndef __LINKEDLIST_H__
 #define __LINKEDLIST_H__
 
-#include <string>
+#include <list>
+#include <vector>
 
 using namespace std;
 
