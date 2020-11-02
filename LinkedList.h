@@ -9,22 +9,19 @@ template <class T>
 class LinkedList{
 
   private:
-  	int numEntries;
-  	typename std::list<T>::iterator it = theList.begin();
+  	list<T> myList;
 
   public:
   	LinkedList();
   	~LinkedList();
 
-    void add(T element);
-    int size() const;
-    T get(int index) const;
-    T remove(int index);
-    vector<T> toArray() const;
+    	void add(T element);
+    	int size() const;
+    	T get(int index) const;
+    	T remove(int index);
+    	vector<T> toArray() const;
 
-    LinkedList<T>& operator+=(const T& item);
-
-
+    	LinkedList<T>& operator+=(const T& item);
 
 };
 
