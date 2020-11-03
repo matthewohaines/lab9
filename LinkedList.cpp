@@ -1,7 +1,12 @@
 #include "LinkedList.h"
+<<<<<<< HEAD
 #include <vector>
 #include <list>
 #include <iostream>
+=======
+
+using namespace std;
+>>>>>>> mh2cp
 
 
 // constructor template class
