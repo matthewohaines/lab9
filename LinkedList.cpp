@@ -6,7 +6,14 @@
 
 // constructor template class
 template <class T>
-LinkedList<T>::LinkedList() {}
+LinkedList<T>::LinkedList() {
+	myList = {};
+}
+
+template <class T>
+LinkedList<T>::LinkedList(LinkedList& list) {
+	myList = list.myList;
+}
 
 template <class T> 
 LinkedList<T>::~LinkedList() {}
