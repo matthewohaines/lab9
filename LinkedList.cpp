@@ -81,7 +81,7 @@ std::vector<T> LinkedList<T>::toArray() const
 }
 
 template <class T>
-LinkedList<T>& operator+=(const T& item){
+LinkedList<T>& LinkedList<T>::operator+=(const T& item){
 	myList.merge(item);
 	return myList;
 }
