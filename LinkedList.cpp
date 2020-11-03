@@ -13,7 +13,7 @@ LinkedList<T>::LinkedList()
 template <class T>
 LinkedList<T>::LinkedList(LinkedList& list) 
 {
-	// new code needed 
+	std::list<T> myList = list;
 }
 
 template <class T> 
