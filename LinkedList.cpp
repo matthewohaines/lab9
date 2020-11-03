@@ -31,7 +31,7 @@ int LinkedList<T>::size() const {
 		tempCounter += 1;
 	}
 	
-	return{tempCounter};
+	return tempCounter;
 }
 
 template <class T>
@@ -64,11 +64,37 @@ T LinkedList<T>::remove(int index) {
 
 template <class T>
 std::vector<T> LinkedList<T>::toArray() const{
-
+	typename std::list<T>::iterator it  = myList.begin();
+	std::vector<T> vec;
+	for (int i = 0; i < myList.size(); ++i)
+	{
+		T element = *it;
+		vec.push_back(element);
+	}
+	return vec;
 }
 
 template <class T>
 LinkedList<T>& operator+=(const T& item){
-	
+	myList.merge(item);
+	return myList;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
