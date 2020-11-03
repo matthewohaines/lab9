@@ -14,6 +14,7 @@ class LinkedList{
 
   public:
   	LinkedList();
+	LinkedList(LinkedList<T>& list);
   	~LinkedList();
 
     	void add(T element);
