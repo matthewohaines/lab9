@@ -29,9 +29,9 @@ void LinkedList<T>::add(T element)
 template <class T>
 int LinkedList<T>::size() const 
 {
-	typename std::list<T>::iterator it = myList.begin();
+	auto it = myList.begin();
 	int tempCounter{0};
-	while (it.next() != NULL) {
+	while (advance(it,1) != NULL) {
 		tempCounter += 1;
 	}
 	
@@ -41,13 +41,13 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const 
 {
-	typename std::list<T>::iterator it = myList.begin();
+	auto it = myList.begin();
 	if (index > myList.size() || index < 0 || myList.size() == 0){
 		throw std::invalid_argument("invalid argument");
 	}
 
 	for (int i = 0; i < index; i++) {
-		it.next();
+		advance(it,1);
 	}
 	return(*it);
 }
@@ -55,13 +55,13 @@ T LinkedList<T>::get(int index) const
 template <class T>
 T LinkedList<T>::remove(int index) 
 {
-	typename std::list<T>::iterator it = myList.begin();
+	auto it = myList.begin();
 	if (index > myList.size() || index < 0 || myList.size() == 0){
 		throw std::invalid_argument("invalid argume");
 	}
 
 	for (int i = 0; i < index; i++) {
-		it.next();
+		advance(it,1);
 	}
 	T element = *it;
 	myList.erase(it);
