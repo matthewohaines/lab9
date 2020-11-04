@@ -27,9 +27,57 @@ int main()
 		linkedlist1.get(8);
 	}
 	catch (const invalid_argument& e) {
-		printf("exception caught with message: %s\n", e.what());
+		printf("trying to access element 8 gives message: %s", e.what());
+		cout << 8 << " size is : " << linkedlist1.size() << endl;
 	}
-	//cout << "linked list: " << linkedlist1.toArray() << endl;
+
+	try{
+                linkedlist1.get(-1);
+        }
+        catch (const invalid_argument& e) {
+                printf("trying to access element -1 gives message: %s", e.what());
+                cout << -1 << " size is : " << linkedlist1.size() << endl;
+        }
+
+	cout << "-----------------------------------" << endl;
+
+	cout << "testing remove function" << endl;
+
+	cout << "size: " << linkedlist1.size() << endl;
+	linkedlist1.remove(0);
+	cout << "removing first element/head" << endl;
+	cout << "size: " << linkedlist1.size() << endl;
+
+	cout << "-----------------------------------" << endl;
+
+	cout << "size: " << linkedlist1.size() << endl;
+        linkedlist1.remove(1);
+        cout << "removing last element/tail" << endl;
+        cout << "size: " << linkedlist1.size() << endl;
+
+	cout << "-----------------------------------" << endl;
+
+	cout << "clearing list and attempting ot access empty list" << endl;
+
+	cout << "removing last element" << endl;
+	linkedlist1.remove(0);
+	cout << "size: " << linkedlist1.size() << endl; 
+
+	try{
+                linkedlist1.get(8);
+        }
+        catch (const invalid_argument& e) {
+                printf("trying to access empty list gives message: %s", e.what());
+                cout << 0 << " size is : " << linkedlist1.size() << endl;
+	}
+
+	cout << "-----------------------------------" << endl;
+
+	cout << "testing operator overload" << endl;
+	
+	cout << "adding 1" << endl;
+	linkedlist1+=3;
+	cout << linkedlist1.size() << endl;
 
 	return 0;
 }

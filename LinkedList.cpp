@@ -31,7 +31,7 @@ int LinkedList<T>::size() const
 {
 	typename std::list<T>::const_iterator it = myList.begin();
 	int tempCounter{0};
-	while (advance(it,1) != NULL) {
+	while (it++ != myList.end()) {
 		tempCounter += 1;
 	}
 	
@@ -42,12 +42,12 @@ template <class T>
 T LinkedList<T>::get(int index) const 
 {
 	typename std::list<T>::const_iterator it = myList.begin();
-	if (index > myList.size() || index < 0 || myList.size() == 0){
+	if (index > (int)myList.size() || index < 0 || (int)myList.size() == 0){
 		throw std::invalid_argument("invalid index: ");
 	}
 
 	for (int i = 0; i < index; i++) {
-		advance(it,1);
+		it++;
 	}
 	return(*it);
 }
@@ -56,12 +56,12 @@ template <class T>
 T LinkedList<T>::remove(int index) 
 {
 	typename std::list<T>::iterator it = myList.begin();
-	if (index > myList.size() || index < 0 || myList.size() == 0){
-		throw std::invalid_argument("invalid argume");
+	if (index > (int)myList.size() || index < 0 || (int)myList.size() == 0){
+		throw std::invalid_argument("invalid argumet");
 	}
 
 	for (int i = 0; i < index; i++) {
-		advance(it,1);
+		it++;
 	}
 	T element = *it;
 	myList.erase(it);
@@ -83,8 +83,8 @@ std::vector<T> LinkedList<T>::toArray() const
 
 template <class T>
 LinkedList<T>& LinkedList<T>::operator+=(const T& item){
-	myList.merge(item);
-	return myList;
+	myList.push_back(item);
+	return(*this);	
 }
 
 
