@@ -44,14 +44,14 @@ int main()
 	cout << "testing remove function" << endl;
 
 	cout << "size: " << linkedlist1.size() << endl;
-	linkedlist1.remove(0);
+	cout << "element being removed: " << linkedlist1.remove(0) << endl;
 	cout << "removing first element/head" << endl;
 	cout << "size: " << linkedlist1.size() << endl;
 
 	cout << "-----------------------------------" << endl;
 
 	cout << "size: " << linkedlist1.size() << endl;
-        linkedlist1.remove(1);
+        cout << "element being removed: " << linkedlist1.remove(1) << endl;
         cout << "removing last element/tail" << endl;
         cout << "size: " << linkedlist1.size() << endl;
 
@@ -77,7 +77,10 @@ int main()
 	
 	cout << "adding 1" << endl;
 	linkedlist1+=3;
+	cout << "size: " << endl;
 	cout << linkedlist1.size() << endl;
+	cout << "element at 0: " << endl;
+	cout << linkedlist1.get(0) << endl;
 
 
 	cout << "-----------------------------------" << endl;
@@ -92,7 +95,7 @@ int main()
 	cout << "Expected toArray output: a b c" << endl;
 	cout << "Observed toArray output: " << endl;
 	vector<char> v = linkedlistchar.toArray();
-	for (int i = 0; i < v.size(); ++i)
+	for (int i = 0; i < (int)v.size(); ++i)
 	{
 		cout << v[i] << endl;
 	}
