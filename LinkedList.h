@@ -3,11 +3,11 @@
 
 #include <string>
 #include <list>
-#include<vector>
-#include <iostream>
+#include <vector>
 
 template <class T>
-class LinkedList{
+class LinkedList
+{
 
   private:
   	int numEntries;
