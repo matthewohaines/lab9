@@ -23,7 +23,12 @@ int main()
 	cout << "-----------------------------------" << endl;
 
 	cout << "testing error throws in get()" << endl;
-	cout << linkedlist1.get(5) << endl;
+	try{
+		linkedlist1.get(8);
+	}
+	catch (const invalid_argument& e) {
+		printf("exception caught with message: %s\n", e.what());
+	}
 	//cout << "linked list: " << linkedlist1.toArray() << endl;
 
 	return 0;
