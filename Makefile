@@ -1,5 +1,5 @@
 EXECS = tester
-OBJS = LinkedList.o
+OBJS = LinkedList.o tester.o
 
 CC = g++
 CCFLAGS = -std=c++17 -Wall -Wno-deprecated -Werror=return-type -g
