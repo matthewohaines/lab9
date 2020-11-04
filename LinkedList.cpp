@@ -1,4 +1,5 @@
 #include "LinkedList.h"
+#include <iostream>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ LinkedList<T>::LinkedList()
 template <class T>
 LinkedList<T>::LinkedList(LinkedList& list) 
 {
-	// new code needed 
+	std::list<T> myList = list;
 }
 
 template <class T> 
@@ -28,9 +29,9 @@ void LinkedList<T>::add(T element)
 template <class T>
 int LinkedList<T>::size() const 
 {
-	typename std::list<T>::iterator it = myList.begin();
+	typename std::list<T>::const_iterator it = myList.begin();
 	int tempCounter{0};
-	while (it.next() != NULL) {
+	while (it++ != myList.end()) {
 		tempCounter += 1;
 	}
 	
@@ -40,13 +41,13 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const 
 {
-	typename std::list<T>::iterator it = myList.begin();
-	if (index > myList.size() || index < 0 || myList.size() == 0){
-		throw std::invalid_argument("invalid argument");
+	typename std::list<T>::const_iterator it = myList.begin();
+	if (index > (int)myList.size() || index < 0 || (int)myList.size() == 0){
+		throw std::invalid_argument("invalid index: ");
 	}
 
 	for (int i = 0; i < index; i++) {
-		it.next();
+		it++;
 	}
 	return(*it);
 }
@@ -55,12 +56,12 @@ template <class T>
 T LinkedList<T>::remove(int index) 
 {
 	typename std::list<T>::iterator it = myList.begin();
-	if (index > myList.size() || index < 0 || myList.size() == 0){
-		throw std::invalid_argument("invalid argume");
+	if (index > (int)myList.size() || index < 0 || (int)myList.size() == 0){
+		throw std::invalid_argument("invalid argumet");
 	}
 
 	for (int i = 0; i < index; i++) {
-		it.next();
+		it++;
 	}
 	T element = *it;
 	myList.erase(it);
@@ -70,21 +71,24 @@ T LinkedList<T>::remove(int index)
 template <class T>
 std::vector<T> LinkedList<T>::toArray() const
 {
-	typename std::list<T>::iterator it  = myList.begin();
 	std::vector<T> vec;
-	for (int i = 0; i < myList.size(); ++i)
+	for (T const &c: myList)
 	{
-		T element = *it;
-		vec.push_back(element);
+		vec.push_back(c);
 	}
 	return vec;
 }
 
 template <class T>
-LinkedList<T>& operator+=(const T& item){
-	myList.merge(item);
-	return myList;
+LinkedList<T>& LinkedList<T>::operator+=(const T& item){
+	myList.push_back(item);
+	return(*this);	
 }
+
+
+
+
+
 
 
 
